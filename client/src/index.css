@@ -1,0 +1,265 @@
+:root {
+  --color-bg: #f4f6fa;
+  --color-surface: #ffffff;
+  --color-text: #1b2230;
+  --color-muted: #5b6577;
+  --color-border: #d4d9e2;
+  --color-primary: #1a56db;
+  --color-primary-hover: #1546b3;
+  --color-error: #b42318;
+  --color-error-bg: #fef3f2;
+  --color-success: #067647;
+  --color-success-bg: #ecfdf3;
+  --radius: 8px;
+
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+.container > header h1 {
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  color: var(--color-muted);
+}
+
+.card,
+.result {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.result {
+  margin-top: 24px;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.section-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.quick-select__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dropdowns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+label {
+  font-weight: 600;
+}
+
+select,
+input[type='file'] {
+  font: inherit;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: inherit;
+}
+
+select:disabled,
+input[type='file']:disabled {
+  background: #eef0f4;
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+select:focus-visible,
+input:focus-visible,
+button:focus-visible,
+pre:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+  outline-offset: 2px;
+}
+
+.button {
+  font: inherit;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 8px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.button--secondary {
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.button--secondary:hover:not(:disabled) {
+  background: #eef3ff;
+}
+
+.button--secondary[aria-pressed='true'] {
+  background: #e1eaff;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.hint,
+.file-name {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.file-name strong {
+  color: var(--color-text);
+  word-break: break-all;
+}
+
+.error,
+.success {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+}
+
+.error {
+  color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.success {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+  font-weight: 600;
+}
+
+.result h2 {
+  margin: 20px 0 12px;
+}
+
+.result h3 {
+  margin: 20px 0 8px;
+  font-size: 1rem;
+}
+
+.result__details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.result__details dt {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.result__details dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.result__logbook {
+  margin: 0;
+  padding: 12px;
+  max-height: 400px;
+  overflow: auto;
+  background: #f7f8fa;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.875rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .dropdowns,
+  .result__details {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .result {
+    padding: 16px;
+  }
+
+  .actions .button {
+    width: 100%;
+  }
+}
